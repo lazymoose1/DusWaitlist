@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Dus — Home</title>
+  <meta name="description" content="Project Dus unites social, blockchain, and AI for measurable educational and civic impact." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0f1222;color:#e9ecff}
+    header,main,footer{max-width:900px;margin:0 auto;padding:20px}
+    nav a{color:#a0c4ff;margin-right:12px;text-decoration:none}
+    .card{background:#171a2b;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px}
+    h1{margin:.2rem 0 1rem}
+    label{display:block;margin:.6rem 0 .2rem}
+    input,select{width:100%;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:#0e1020;color:#e9ecff}
+    button{margin-top:10px;padding:.7rem 1rem;border:0;border-radius:12px;font-weight:800;cursor:pointer;
+      color:#0b0e1a;background:linear-gradient(135deg,#6AD7FF,#1FA2A6)}
+    .hint{color:#b8bef7;font-size:.9rem}
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/thanks.html">Thanks</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Project Dus waitlist</h1>
+    <p class="hint">Drop your email to get early access updates.</p>
+    <form id="dus-form">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="you@example.com" />
+      <label for="role">I am a…</label>
+      <select id="role" name="role" required>
+        <option value="">Select</option>
+        <option>Student 13–17</option>
+        <option>Student 18+</option>
+        <option>Parent / Guardian</option>
+        <option>Educator / School Admin</option>
+        <option>Community Partner</option>
+        <option>Public Sector / Agency</option>
+        <option>Industry / Sponsor</option>
+        <option>Other</option>
+      </select>
+      <button type="submit">Join the waitlist</button>
+      <p id="msg" class="hint" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Project Dus</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const form = document.getElementById('dus-form');
+  const msg = document.getElementById('msg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const role = document.getElementById('role').value;
+    if(!email || !role){
+      msg.textContent = "Please enter email and choose a role.";
+      msg.style.color = "#ffb3b3";
+      return;
+    }
+    msg.textContent = "Thanks! Redirecting…";
+    msg.style.color = "#6AD7FF";
+    setTimeout(()=>{ window.location.href = "/thanks.html"; }, 800);
+  });
+</script>
+</body>
+</html>
