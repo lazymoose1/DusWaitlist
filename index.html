@@ -17,6 +17,17 @@
     button{margin-top:10px;padding:.7rem 1rem;border:0;border-radius:12px;font-weight:800;cursor:pointer;
       color:#0b0e1a;background:linear-gradient(135deg,#6AD7FF,#1FA2A6)}
     .hint{color:#b8bef7;font-size:.9rem}
+    .hero-images {
+    display: flex;          /* arrange children side by side */
+    justify-content: center;
+    gap: 20px;              /* add some space between them */
+    margin-bottom: 2rem;    /* space below the images */
+  }
+  .hero-images img {
+    width: 45%;             /* each image takes about half of the container */
+    height: auto;           /* maintain aspect ratio */
+    border-radius: 8px;     /* optional: rounded corners */
+  }
   </style>
 </head>
 <body>
@@ -29,13 +40,12 @@
 </header>
 
 <main>
-  <img
-  class="left-image"
-  src="/Dusoutput.png"
-  alt="Students collaborating by a riverside"
-  width="1600" height="900"
+    <div class="hero-images">
+  <img src="/Dusoutput.png" alt="Students collaborating by a riverside"
+  <img src="/imageSocialLogin.png" alt="Students collaborating by a riverside"
   loading="eager"
   decoding="async"> 
+  </div>
   <div class="card">
     <h1>Project Dus waitlist</h1>
     <p class="hint">Drop your email to get early access updates.</p>
